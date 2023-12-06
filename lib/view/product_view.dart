@@ -1,126 +1,114 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:minimal_shoe_app_ui/constants.dart';
+import 'package:minimal_shoe_app_ui/view/components/carousel_slider.dart';
+import 'package:minimal_shoe_app_ui/view/components/choose_colors_component.dart';
+import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_dropdown_button.dart';
+import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_elevated_button.dart';
+import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
+import 'package:minimal_shoe_app_ui/view/components/product_showcase.dart';
 
 class ProductView extends StatelessWidget {
-  const ProductView({super.key});
+  const ProductView(
+      {super.key,
+      required this.productTitle,
+      required this.productPrice,
+      required this.productDesc,
+      this.dropdownBText = 'Choose Size',
+      this.elevatedBText = 'Add To Bag',
+      required this.productImagePaths,
+      required this.logoPath,
+      required this.colorOptions,
+      required this.dropdownItemList});
 
+  final String productTitle;
+  final String productPrice;
+  final String productDesc;
+  final String dropdownBText;
+  final String elevatedBText;
+  final List<String> productImagePaths;
+  final String logoPath;
+  final List<Color> colorOptions;
+  final List<String> dropdownItemList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffFFFFFF),
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: SvgPicture.asset('assets/icons/chevron_left.svg'),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: SvgPicture.asset('assets/icons/three_dots.svg'),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: productAppBar(),
       body: SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 7) +
-                const EdgeInsets.only(bottom: 24),
-            child: Container(
-              height: MediaQuery.of(context).size.width,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color(0xffEEEEEE),
-              ),
-            ),
+            padding: MyPaddings.kSmallPadding + MyPaddings.kBottomPadding / 2,
+            child: ProductShowcaseWidget(
+                logoPath: logoPath, productImagePaths: productImagePaths),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0) +
-                const EdgeInsets.only(bottom: 12),
-            child: const Text('Lorem ipsum'),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 36.0),
-            child: Text('Lorem ipsum'),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0, vertical: 18),
-            child: Text('Lorem ipsum' * 20),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0) +
-                const EdgeInsets.only(bottom: 18),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: MyPaddings.kHorizontalPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.circle,
-                      size: 23,
-                    ),
-                    SizedBox(width: 13),
-                    Icon(
-                      Icons.circle,
-                      size: 23,
-                    ),
-                    SizedBox(width: 13),
-                    Icon(
-                      Icons.circle,
-                      size: 23,
-                    ),
-                    SizedBox(width: 13),
-                    Icon(
-                      Icons.circle,
-                      size: 23,
-                    ),
-                  ],
+                Padding(
+                  padding: MyPaddings.kBottomPadding / 2,
+                  child: Text(productTitle, style: MyFonts.titleStyle),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: const Color(0xffEEEEEE),
+                Padding(
+                  padding: MyPaddings.kBottomPadding / 2,
+                  child: Text(
+                    productPrice,
+                    style: MyFonts.priceStyle,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 18, vertical: 10),
-                    child: DropdownButton<String>(
-                      isDense: true,
-                      underline: SizedBox.shrink(),
-                      items: [
-                        const DropdownMenuItem(child: Text('Choose Size'))
-                      ],
-                      onChanged: (Object? value) {},
-                    ),
+                ),
+                Padding(
+                  padding: MyPaddings.kBottomPadding,
+                  child: Text(
+                    productDesc,
+                    style: MyFonts.descStyle,
                   ),
-                )
+                ),
+                Padding(
+                  padding: MyPaddings.kBottomPadding,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: ChooseColorsWidget(
+                          colorOptionList: colorOptions,
+                        ),
+                      ),
+                      Flexible(
+                        child: MyDropdownButton(
+                          dropdownItems: dropdownItemList,
+                          dropdownHintText: Paths.dropdownText,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: MyElevatedButton(
+                      buttonText: elevatedBText, onPressed: () {}),
+                ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 36.0),
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                ),
-                onPressed: () {},
-                child: const Center(
-                    child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Text('Add To Bag'),
-                ))),
-          )
         ],
       )),
+    );
+  }
+
+  AppBar productAppBar() {
+    return AppBar(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          MyIconButton(iconPath: Paths.chevronLeftPath, onPressed: () {}),
+          MyIconButton(iconPath: Paths.threeDotsPath, onPressed: () {})
+        ],
+      ),
     );
   }
 }
