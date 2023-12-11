@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
 import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
@@ -83,9 +82,11 @@ class HomepageView extends StatelessWidget {
             ),
             SliverGrid.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 40.0,
-                  crossAxisSpacing: 20),
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                childAspectRatio: 0.60,
+              ),
               itemCount: productList.length,
               itemBuilder: (context, index) {
                 final product = productList[index];
@@ -94,8 +95,9 @@ class HomepageView extends StatelessWidget {
                   offset = 20.0; // Adjust offset amount as needed
                 }
                 return OffsetItemWidget(
-                    child: productOverviewWidget(product: product),
-                    offset: offset);
+                  offset: offset,
+                  child: ProductOverviewWidget(product: product),
+                );
               },
             )
           ],
@@ -103,10 +105,8 @@ class HomepageView extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'HOME'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.search_off_outlined), label: 'SHOP'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.card_giftcard_outlined), label: 'CART')
+        BottomNavigationBarItem(icon: Icon(Icons.search_off_outlined), label: 'SHOP'),
+        BottomNavigationBarItem(icon: Icon(Icons.card_giftcard_outlined), label: 'CART')
       ]),
     );
   }

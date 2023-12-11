@@ -63,8 +63,8 @@ class PopularList extends StatelessWidget {
   }
 }
 */
-class productOverviewWidget extends StatelessWidget {
-  const productOverviewWidget({
+class ProductOverviewWidget extends StatelessWidget {
+  const ProductOverviewWidget({
     super.key,
     required this.product,
   });
@@ -72,40 +72,43 @@ class productOverviewWidget extends StatelessWidget {
   final ProductModel product;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Container(
+    return Container(
+      color: Colors.red,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(18),
-                  color: MyColors.softGrey),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: SizedBox(
-                  width: 10000,
-                  child: SizedBox(
-                    child: Image.asset(
-                      fit: BoxFit.fitWidth,
-                      product.imagePaths[0],
-                    ),
-                  ),
-                ),
-              )),
-        ),
-        Padding(
-          padding: MyPaddings.kBottomPadding,
-          child: Text(
-            product.title,
-            style: MyFonts.priceStyle.copyWith(color: MyColors.pureBlack),
+                borderRadius: BorderRadius.circular(18),
+                color: MyColors.softGrey,
+              ),
+              child: Image.asset(
+                fit: BoxFit.cover,
+                product.imagePaths[0],
+              ),
+            ),
           ),
-        ),
-        Text(
-          product.price,
-          style: MyFonts.titleStyle.copyWith(fontSize: 18),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              product.title,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: MyFonts.priceStyle.copyWith(color: MyColors.pureBlack),
+            ),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              product.price,
+              style: MyFonts.titleStyle.copyWith(fontSize: 18),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
