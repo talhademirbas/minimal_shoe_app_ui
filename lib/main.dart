@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:minimal_shoe_app_ui/constants.dart';
-import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
 import 'package:minimal_shoe_app_ui/theme/light_theme.dart';
 import 'package:minimal_shoe_app_ui/view/homepageView/homepage_view.dart';
-import 'package:minimal_shoe_app_ui/view/productView/product_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +16,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: MyThemes().lightTheme,
         title: _title,
-        home: HomepageView());
+        home: const HomepageView());
   }
 }
 

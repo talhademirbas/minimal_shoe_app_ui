@@ -23,10 +23,10 @@ class HomepageView extends StatelessWidget {
           ],
           logoPath: Paths.nikeLogoPath,
           colorOptions: [
-            Color(0xff29605D),
-            Color(0xff5B8EA3),
-            Color(0xff746A36),
-            Color(0xff2E2E2E),
+            const Color(0xff29605D),
+            const Color(0xff5B8EA3),
+            const Color(0xff746A36),
+            const Color(0xff2E2E2E),
           ],
           sizeOptions: ['40', '41', '42']),
       ProductModel(
@@ -39,10 +39,10 @@ class HomepageView extends StatelessWidget {
           ],
           logoPath: Paths.nikeLogoPath,
           colorOptions: [
-            Color(0xff29605D),
-            Color(0xff5B8EA3),
-            Color(0xff746A36),
-            Color(0xff2E2E2E),
+            const Color(0xff29605D),
+            const Color(0xff5B8EA3),
+            const Color(0xff746A36),
+            const Color(0xff2E2E2E),
           ],
           sizeOptions: ['40', '41', '42']),
       ProductModel(
@@ -55,10 +55,10 @@ class HomepageView extends StatelessWidget {
           ],
           logoPath: Paths.nikeLogoPath,
           colorOptions: [
-            Color(0xff29605D),
-            Color(0xff5B8EA3),
-            Color(0xff746A36),
-            Color(0xff2E2E2E),
+            const Color(0xff29605D),
+            const Color(0xff5B8EA3),
+            const Color(0xff746A36),
+            const Color(0xff2E2E2E),
           ],
           sizeOptions: ['40', '41', '42']),
     ];
@@ -69,10 +69,10 @@ class HomepageView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: EdgeInsets.symmetric(vertical: 27),
+              padding: const EdgeInsets.symmetric(vertical: 27),
               sliver: SliverToBoxAdapter(child: MyTextField()),
             ),
-            SliverPadding(
+            const SliverPadding(
               padding: EdgeInsets.symmetric(vertical: MySizes.kVerticalPadding),
               sliver: SliverToBoxAdapter(
                 child: TopBrandsChart(chartList: [
@@ -81,11 +81,11 @@ class HomepageView extends StatelessWidget {
               ),
             ),
             SliverGrid.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
-                childAspectRatio: 0.60,
+                childAspectRatio: 0.62,
               ),
               itemCount: productList.length,
               itemBuilder: (context, index) {
@@ -96,17 +96,19 @@ class HomepageView extends StatelessWidget {
                 }
                 return OffsetItemWidget(
                   offset: offset,
-                  child: ProductOverviewWidget(product: product),
+                  child: ProductOverviewWidget(product: product, index: index),
                 );
               },
             )
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
+      bottomNavigationBar: BottomNavigationBar(items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'HOME'),
-        BottomNavigationBarItem(icon: Icon(Icons.search_off_outlined), label: 'SHOP'),
-        BottomNavigationBarItem(icon: Icon(Icons.card_giftcard_outlined), label: 'CART')
+        BottomNavigationBarItem(
+            icon: Icon(Icons.search_off_outlined), label: 'SHOP'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.card_giftcard_outlined), label: 'CART')
       ]),
     );
   }

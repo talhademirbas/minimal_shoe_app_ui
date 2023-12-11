@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/view/homepageView/components/logo_container.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/homepage_view.dart';
 
 class TopBrandsChart extends StatelessWidget {
-  TopBrandsChart({
+  const TopBrandsChart({
     super.key,
     required this.chartList,
   });

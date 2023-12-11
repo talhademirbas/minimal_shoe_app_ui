@@ -16,15 +16,17 @@ class ProductView extends StatelessWidget {
       {super.key,
       this.dropdownBText = 'Choose Size',
       this.elevatedBText = 'Add To Bag',
-      required this.product});
+      required this.product,
+      required this.index});
 
   final ProductModel product;
   final String dropdownBText;
   final String elevatedBText;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: productAppBar(),
+      appBar: _getAppBar(context),
       body: SingleChildScrollView(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +34,10 @@ class ProductView extends StatelessWidget {
           Padding(
             padding: MyPaddings.kSmallPadding + MyPaddings.kBottomPadding / 2,
             child: ProductShowcaseWidget(
-                logoPath: product.logoPath,
-                productImagePaths: product.imagePaths),
+              logoPath: product.logoPath,
+              productImagePaths: product.imagePaths,
+              index: index,
+            ),
           ),
           Padding(
             padding: MyPaddings.kHorizontalPadding,
@@ -90,12 +94,16 @@ class ProductView extends StatelessWidget {
     );
   }
 
-  AppBar productAppBar() {
+  AppBar _getAppBar(BuildContext context) {
     return AppBar(
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          MyIconButton(iconPath: Paths.chevronLeftPath, onPressed: () {}),
+          MyIconButton(
+              iconPath: Paths.chevronLeftPath,
+              onPressed: () {
+                Navigator.pop(context);
+              }),
           MyIconButton(iconPath: Paths.threeDotsPath, onPressed: () {})
         ],
       ),

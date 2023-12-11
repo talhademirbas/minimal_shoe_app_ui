@@ -8,11 +8,13 @@ class ProductShowcaseWidget extends StatelessWidget {
     super.key,
     required this.logoPath,
     required this.productImagePaths,
+    required this.index,
   });
 
   final String logoPath;
   final List<String> productImagePaths;
   final String errorMessage = 'Houston, we have a problem.';
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +39,18 @@ class ProductShowcaseWidget extends StatelessWidget {
           child: SizedBox(
             height: MediaQuery.of(context).size.width,
             width: MediaQuery.of(context).size.width,
-            child: CarouselSlider(
-                items: productImagePaths
-                    .map((path) => Image.asset(
-                          path,
-                          errorBuilder: (context, error, stackTrace) {
-                            return Text(errorMessage);
-                          },
-                        ))
-                    .toList()),
+            child: Hero(
+              tag: index,
+              child: CarouselSlider(
+                  items: productImagePaths
+                      .map((path) => Image.asset(
+                            path,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Text(errorMessage);
+                            },
+                          ))
+                      .toList()),
+            ),
           ),
         )
       ]),
