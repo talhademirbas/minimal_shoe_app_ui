@@ -29,18 +29,22 @@ class ProductOverviewWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              color: MyColors.softGrey,
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Hero(
-                tag: index,
-                child: Image.asset(
-                  fit: BoxFit.fitWidth,
-                  product.imagePaths[0],
+          AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
+                color: MyColors.softGrey,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Hero(
+                  tag: index,
+                  child: Image.asset(
+                    width: double.infinity,
+                    fit: BoxFit.fitWidth,
+                    product.imagePaths[0],
+                  ),
                 ),
               ),
             ),

@@ -44,6 +44,8 @@ class ProductShowcaseWidget extends StatelessWidget {
               child: CarouselSlider(
                   items: productImagePaths
                       .map((path) => Image.asset(
+                            fit: BoxFit.fitWidth,
+                            width: double.infinity,
                             path,
                             errorBuilder: (context, error, stackTrace) {
                               return Text(errorMessage);

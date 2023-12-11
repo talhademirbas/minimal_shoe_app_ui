@@ -34,8 +34,8 @@ class HomepageView extends StatelessWidget {
           price: Paths.productPrice,
           desc: Paths.productDesc,
           imagePaths: [
-            Paths.nikeShoe1Path,
-            Paths.nikeShoe1Path,
+            Paths.shoe2Path,
+            Paths.shoe2Path,
           ],
           logoPath: Paths.nikeLogoPath,
           colorOptions: [
@@ -50,8 +50,24 @@ class HomepageView extends StatelessWidget {
           price: Paths.productPrice,
           desc: Paths.productDesc,
           imagePaths: [
-            Paths.nikeShoe1Path,
-            Paths.nikeShoe1Path,
+            Paths.shoe3Path,
+            Paths.shoe3Path,
+          ],
+          logoPath: Paths.nikeLogoPath,
+          colorOptions: [
+            const Color(0xff29605D),
+            const Color(0xff5B8EA3),
+            const Color(0xff746A36),
+            const Color(0xff2E2E2E),
+          ],
+          sizeOptions: ['40', '41', '42']),
+      ProductModel(
+          title: Paths.productTitle,
+          price: Paths.productPrice,
+          desc: Paths.productDesc,
+          imagePaths: [
+            Paths.shoe4Path,
+            Paths.shoe4Path,
           ],
           logoPath: Paths.nikeLogoPath,
           colorOptions: [
@@ -69,37 +85,29 @@ class HomepageView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.symmetric(vertical: 27),
+              padding: const EdgeInsets.only(top: 27),
               sliver: SliverToBoxAdapter(child: MyTextField()),
             ),
             const SliverPadding(
-              padding: EdgeInsets.symmetric(vertical: MySizes.kVerticalPadding),
+              padding: EdgeInsets.symmetric(vertical: 40),
               sliver: SliverToBoxAdapter(
                 child: TopBrandsChart(chartList: [
                   Paths.nikeLogoPath,
+                  Paths.adidasLogoPath,
+                  Paths.pumaLogoPath,
+                  Paths.converseLogoPath
                 ]),
               ),
             ),
-            SliverGrid.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                childAspectRatio: 0.62,
+            SliverPadding(
+              padding: EdgeInsets.only(bottom: 30),
+              sliver: SliverToBoxAdapter(
+                child: Text('Popular',
+                    style: MyFonts.titleStyle
+                        .copyWith(fontWeight: FontWeight.w500, fontSize: 22)),
               ),
-              itemCount: productList.length,
-              itemBuilder: (context, index) {
-                final product = productList[index];
-                double offset = 0.0;
-                if (index % 2 == 1) {
-                  offset = 20.0; // Adjust offset amount as needed
-                }
-                return OffsetItemWidget(
-                  offset: offset,
-                  child: ProductOverviewWidget(product: product, index: index),
-                );
-              },
-            )
+            ),
+            ProductGridview(productList: productList)
           ],
         ),
       ),
@@ -129,6 +137,40 @@ class HomepageView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProductGridview extends StatelessWidget {
+  const ProductGridview({
+    super.key,
+    required this.productList,
+  });
+
+  final List<ProductModel> productList;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
+        childAspectRatio: 0.60,
+      ),
+      itemCount: productList.length,
+      itemBuilder: (context, index) {
+        final product = productList[index];
+        double offset = 0.0;
+        if (index % 2 == 1) {
+          offset = 20.0; // Adjust offset amount as needed
+        }
+        return OffsetItemWidget(
+          offset: offset,
+          child: Center(
+              child: ProductOverviewWidget(product: product, index: index)),
+        );
+      },
     );
   }
 }

@@ -88,7 +88,13 @@ class Paths {
 
   static const String logosPathBase = 'assets/logos/';
   static const String nikeLogoPath = '${logosPathBase}nike_logo.svg';
+  static const String pumaLogoPath = '${logosPathBase}puma_logo.svg';
+  static const String converseLogoPath = '${logosPathBase}converse_logo.svg';
+  static const String adidasLogoPath = '${logosPathBase}adidas_logo.svg';
 
   static const String productImagesPathBase = 'assets/productImages/';
   static const String nikeShoe1Path = '${productImagesPathBase}nikeShoe1.png';
+  static const String shoe2Path = '${productImagesPathBase}shoe2.png';
+  static const String shoe3Path = '${productImagesPathBase}shoe3.png';
+  static const String shoe4Path = '${productImagesPathBase}shoe4.png';
 }

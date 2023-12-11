@@ -20,7 +20,10 @@ class _CarouselSliderState extends State<CarouselSlider> {
         PageView.builder(
           itemCount: widget.items.length,
           itemBuilder: (context, index) {
-            return widget.items[index];
+            return Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: widget.items[index],
+            );
           },
           onPageChanged: (index) {
             setState(() {
