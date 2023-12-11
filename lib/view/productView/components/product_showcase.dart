@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
-import 'package:minimal_shoe_app_ui/view/components/carousel_slider.dart';
+import 'package:minimal_shoe_app_ui/view/productView/components/carousel_slider.dart';
 
 class ProductShowcaseWidget extends StatelessWidget {
   const ProductShowcaseWidget({

@@ -82,6 +82,9 @@ class Paths {
   static const String iconsPathBase = 'assets/icons/';
   static const String chevronLeftPath = '${iconsPathBase}chevron_left.svg';
   static const String threeDotsPath = '${iconsPathBase}three_dots.svg';
+  static const String notificationBellPath =
+      '${iconsPathBase}notification_bell.svg';
+  static const String searchIconPath = '${iconsPathBase}search_icon.svg';
 
   static const String logosPathBase = 'assets/logos/';
   static const String nikeLogoPath = '${logosPathBase}nike_logo.svg';

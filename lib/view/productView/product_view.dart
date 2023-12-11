@@ -3,35 +3,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
-import 'package:minimal_shoe_app_ui/view/components/carousel_slider.dart';
-import 'package:minimal_shoe_app_ui/view/components/choose_colors_component.dart';
+import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
+import 'package:minimal_shoe_app_ui/view/productView/components/carousel_slider.dart';
+import 'package:minimal_shoe_app_ui/view/productView/components/choose_colors_component.dart';
 import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_dropdown_button.dart';
 import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_elevated_button.dart';
 import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
-import 'package:minimal_shoe_app_ui/view/components/product_showcase.dart';
+import 'package:minimal_shoe_app_ui/view/productView/components/product_showcase.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView(
       {super.key,
-      required this.productTitle,
-      required this.productPrice,
-      required this.productDesc,
       this.dropdownBText = 'Choose Size',
       this.elevatedBText = 'Add To Bag',
-      required this.productImagePaths,
-      required this.logoPath,
-      required this.colorOptions,
-      required this.dropdownItemList});
+      required this.product});
 
-  final String productTitle;
-  final String productPrice;
-  final String productDesc;
+  final ProductModel product;
   final String dropdownBText;
   final String elevatedBText;
-  final List<String> productImagePaths;
-  final String logoPath;
-  final List<Color> colorOptions;
-  final List<String> dropdownItemList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +32,8 @@ class ProductView extends StatelessWidget {
           Padding(
             padding: MyPaddings.kSmallPadding + MyPaddings.kBottomPadding / 2,
             child: ProductShowcaseWidget(
-                logoPath: logoPath, productImagePaths: productImagePaths),
+                logoPath: product.logoPath,
+                productImagePaths: product.imagePaths),
           ),
           Padding(
             padding: MyPaddings.kHorizontalPadding,
@@ -52,19 +42,19 @@ class ProductView extends StatelessWidget {
               children: [
                 Padding(
                   padding: MyPaddings.kBottomPadding / 2,
-                  child: Text(productTitle, style: MyFonts.titleStyle),
+                  child: Text(product.title, style: MyFonts.titleStyle),
                 ),
                 Padding(
                   padding: MyPaddings.kBottomPadding / 2,
                   child: Text(
-                    productPrice,
+                    product.price,
                     style: MyFonts.priceStyle,
                   ),
                 ),
                 Padding(
                   padding: MyPaddings.kBottomPadding,
                   child: Text(
-                    productDesc,
+                    product.desc,
                     style: MyFonts.descStyle,
                   ),
                 ),
@@ -75,12 +65,12 @@ class ProductView extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ChooseColorsWidget(
-                          colorOptionList: colorOptions,
+                          colorOptionList: product.colorOptions,
                         ),
                       ),
                       Flexible(
                         child: MyDropdownButton(
-                          dropdownItems: dropdownItemList,
+                          dropdownItems: product.sizeOptions,
                           dropdownHintText: Paths.dropdownText,
                         ),
                       )
