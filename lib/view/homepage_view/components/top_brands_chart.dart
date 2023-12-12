@@ -8,7 +8,7 @@ class TopBrandsChart extends StatelessWidget {
     required this.chartList,
   });
 
-  final List<String> chartList;
+  final List<String>? chartList;
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +23,30 @@ class TopBrandsChart extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.w500, fontSize: 22),
           ),
         ),
-        SizedBox(
-          height: 70,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            shrinkWrap: true,
-            itemCount: chartList.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  debugPrint('$index');
-                },
-                child: LogoContainer(
-                  logoPath: chartList[index],
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => const SizedBox(width: 28),
-          ),
-        )
+        chartList == null ? const CircularProgressIndicator() : _getListView(),
       ],
+    );
+  }
+
+  SizedBox _getListView() {
+    return SizedBox(
+      height: 70,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: chartList!.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              debugPrint('$index');
+            },
+            child: LogoContainer(
+              logoPath: chartList![index],
+            ),
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(width: 28),
+      ),
     );
   }
 }

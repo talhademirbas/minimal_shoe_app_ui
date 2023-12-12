@@ -72,7 +72,8 @@ class MyFonts {
 }
 
 class Paths {
-  static const String productTitle = 'Nike Air Max 90';
+  static const String productTitle =
+      'air-zoom-arcadia-2-older-road-running-shoes-qZt6TR';
   static const String productPrice = '\$239.80';
   static const String productDesc =
       'A pillar of sneaker culture, the Nike Air Max 90 remains one of the most significant designs since the brand’s founding. And while its OG colorways are some of the most significant.';
@@ -93,8 +94,6 @@ class Paths {
   static const String adidasLogoPath = '${logosPathBase}adidas_logo.svg';
 
   static const String productImagesPathBase = 'assets/productImages/';
-  static const String nikeShoe1Path = '${productImagesPathBase}nikeShoe1.png';
-  static const String shoe2Path = '${productImagesPathBase}shoe2.png';
-  static const String shoe3Path = '${productImagesPathBase}shoe3.png';
-  static const String shoe4Path = '${productImagesPathBase}shoe4.png';
+  static const String shoeName =
+      'air-zoom-arcadia-2-older-road-running-shoes-qZt6TR';
 }
