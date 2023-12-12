@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
-import 'package:minimal_shoe_app_ui/view/productView/components/carousel_slider.dart';
-import 'package:minimal_shoe_app_ui/view/productView/components/choose_colors_component.dart';
-import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_dropdown_button.dart';
-import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_elevated_button.dart';
-import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
-import 'package:minimal_shoe_app_ui/view/productView/components/product_showcase.dart';
+import 'package:minimal_shoe_app_ui/view/product_view/components/carousel_slider.dart';
+import 'package:minimal_shoe_app_ui/view/product_view/components/choose_colors_component.dart';
+import 'package:minimal_shoe_app_ui/view/core_components/custom_buttons/my_dropdown_button.dart';
+import 'package:minimal_shoe_app_ui/view/core_components/custom_buttons/my_elevated_button.dart';
+import 'package:minimal_shoe_app_ui/view/core_components/custom_buttons/my_icon_button.dart';
+import 'package:minimal_shoe_app_ui/view/product_view/components/product_showcase.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView(

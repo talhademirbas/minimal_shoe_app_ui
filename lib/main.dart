@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shoe_app_ui/theme/light_theme.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/homepage_view.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/homepage_view.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
-import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
+import 'package:minimal_shoe_app_ui/view/core_components/custom_buttons/my_icon_button.dart';
 
 class MyTextField extends StatelessWidget {
   MyTextField({

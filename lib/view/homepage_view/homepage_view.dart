@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
-import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/my_textfield.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/offset_item_widget.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/popular_list.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/top_brands_chart.dart';
+import 'package:minimal_shoe_app_ui/view/core_components/custom_buttons/my_icon_button.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/components/my_textfield.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/components/offset_item_widget.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/components/product_overview_widget.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/components/top_brands_chart.dart';
 
 class HomepageView extends StatelessWidget {
   const HomepageView({super.key});

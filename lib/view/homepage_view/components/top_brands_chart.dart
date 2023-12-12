@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minimal_shoe_app_ui/constants.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/logo_container.dart';
+import 'package:minimal_shoe_app_ui/view/homepage_view/components/logo_container.dart';
 
 class TopBrandsChart extends StatelessWidget {
   const TopBrandsChart({

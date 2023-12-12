@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
-import 'package:minimal_shoe_app_ui/view/productView/product_view.dart';
+import 'package:minimal_shoe_app_ui/view/product_view/product_view.dart';
 
 class ProductOverviewWidget extends StatelessWidget {
   const ProductOverviewWidget({
