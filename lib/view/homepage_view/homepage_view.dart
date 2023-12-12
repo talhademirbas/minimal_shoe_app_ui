@@ -20,14 +20,13 @@ class _HomepageViewState extends State<HomepageView> {
   @override
   void initState() {
     super.initState();
-    fetchProducts().then((result) {
-      print("result: 0");
-      setState(() {});
-    });
+    fetchProducts().whenComplete(() => setState(
+          () {},
+        ));
   }
 
   Future<void> fetchProducts() async {
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 5));
     productList = [
       ProductModel(
         title: Paths.productTitle,
