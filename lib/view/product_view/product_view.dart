@@ -96,6 +96,7 @@ class ProductView extends StatelessWidget {
 
   AppBar _getAppBar(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
