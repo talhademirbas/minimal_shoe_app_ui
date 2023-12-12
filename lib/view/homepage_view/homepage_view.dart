@@ -15,13 +15,19 @@ class HomepageView extends StatefulWidget {
 
 class _HomepageViewState extends State<HomepageView> {
   List<ProductModel>? productList;
+
+  List<String>? chartlist;
   @override
   void initState() {
     super.initState();
-    fetchProducts();
+    fetchProducts().then((result) {
+      print("result: 0");
+      setState(() {});
+    });
   }
 
   Future<void> fetchProducts() async {
+    await Future.delayed(Duration(seconds: 5));
     productList = [
       ProductModel(
         title: Paths.productTitle,
@@ -79,6 +85,12 @@ class _HomepageViewState extends State<HomepageView> {
     await Future.forEach(productList!, (product) async {
       await product.initializeImagePaths();
     });
+    chartlist = [
+      Paths.nikeLogoPath,
+      Paths.adidasLogoPath,
+      Paths.pumaLogoPath,
+      Paths.converseLogoPath
+    ];
   }
 
   @override
@@ -93,16 +105,11 @@ class _HomepageViewState extends State<HomepageView> {
               padding: const EdgeInsets.only(top: 27),
               sliver: SliverToBoxAdapter(child: MyTextField()),
             ),
-            const SliverPadding(
-              padding: EdgeInsets.symmetric(vertical: 40),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(vertical: 40),
               sliver: SliverToBoxAdapter(
                 child: TopBrandsChart(
-                  chartList: [
-                    Paths.nikeLogoPath,
-                    Paths.adidasLogoPath,
-                    Paths.pumaLogoPath,
-                    Paths.converseLogoPath
-                  ],
+                  chartList: chartlist,
                 ),
               ),
             ),

@@ -5,7 +5,7 @@ import 'package:minimal_shoe_app_ui/view/homepage_view/components/logo_container
 class TopBrandsChart extends StatelessWidget {
   const TopBrandsChart({
     super.key,
-    required this.chartList,
+    this.chartList,
   });
 
   final List<String>? chartList;
