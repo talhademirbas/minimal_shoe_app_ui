@@ -40,6 +40,7 @@ class ProductShowcaseWidget extends StatelessWidget {
             height: MediaQuery.of(context).size.width,
             width: MediaQuery.of(context).size.width,
             child: Hero(
+              transitionOnUserGestures: true,
               tag: index,
               child: CarouselSlider(
                   items: productImagePaths

@@ -37,6 +37,7 @@ class ProductOverviewWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Hero(
+                  transitionOnUserGestures: true,
                   tag: index,
                   child: Image.asset(
                     width: double.infinity,
