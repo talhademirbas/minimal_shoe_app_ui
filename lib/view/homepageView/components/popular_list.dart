@@ -1,10 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/offset_item_widget';
 import 'package:minimal_shoe_app_ui/view/productView/product_view.dart';
 
 class ProductOverviewWidget extends StatelessWidget {

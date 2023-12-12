@@ -3,7 +3,7 @@ import 'package:minimal_shoe_app_ui/constants.dart';
 import 'package:minimal_shoe_app_ui/service/model/product_model.dart';
 import 'package:minimal_shoe_app_ui/view/components/custom_buttons/my_icon_button.dart';
 import 'package:minimal_shoe_app_ui/view/homepageView/components/my_textfield.dart';
-import 'package:minimal_shoe_app_ui/view/homepageView/components/offset_item_widget';
+import 'package:minimal_shoe_app_ui/view/homepageView/components/offset_item_widget.dart';
 import 'package:minimal_shoe_app_ui/view/homepageView/components/popular_list.dart';
 import 'package:minimal_shoe_app_ui/view/homepageView/components/top_brands_chart.dart';
 
@@ -85,7 +85,7 @@ class HomepageView extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.only(top: 27),
+              padding: EdgeInsets.only(top: 27),
               sliver: SliverToBoxAdapter(child: MyTextField()),
             ),
             const SliverPadding(
@@ -100,7 +100,7 @@ class HomepageView extends StatelessWidget {
               ),
             ),
             SliverPadding(
-              padding: EdgeInsets.only(bottom: 30),
+              padding: const EdgeInsets.only(bottom: 30),
               sliver: SliverToBoxAdapter(
                 child: Text('Popular',
                     style: MyFonts.titleStyle

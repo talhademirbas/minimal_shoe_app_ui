@@ -16,7 +16,7 @@ class TopBrandsChart extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(bottom: 30),
+          padding: const EdgeInsets.only(bottom: 30),
           child: Text(
             'Top Brands',
             style: MyFonts.titleStyle
