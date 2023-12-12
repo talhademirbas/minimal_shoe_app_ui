@@ -36,6 +36,45 @@ class _HomepageViewState extends State<HomepageView> {
         ],
         sizeOptions: ['40', '41', '42'],
       ),
+      ProductModel(
+        title: Paths.productTitle2,
+        price: Paths.productPrice,
+        desc: Paths.productDesc,
+        logoPath: Paths.nikeLogoPath,
+        colorOptions: [
+          const Color(0xff29605D),
+          const Color(0xff5B8EA3),
+          const Color(0xff746A36),
+          const Color(0xff2E2E2E),
+        ],
+        sizeOptions: ['40', '41', '42'],
+      ),
+      ProductModel(
+        title: Paths.productTitle,
+        price: Paths.productPrice,
+        desc: Paths.productDesc,
+        logoPath: Paths.nikeLogoPath,
+        colorOptions: [
+          const Color(0xff29605D),
+          const Color(0xff5B8EA3),
+          const Color(0xff746A36),
+          const Color(0xff2E2E2E),
+        ],
+        sizeOptions: ['40', '41', '42'],
+      ),
+      ProductModel(
+        title: Paths.productTitle,
+        price: Paths.productPrice,
+        desc: Paths.productDesc,
+        logoPath: Paths.nikeLogoPath,
+        colorOptions: [
+          const Color(0xff29605D),
+          const Color(0xff5B8EA3),
+          const Color(0xff746A36),
+          const Color(0xff2E2E2E),
+        ],
+        sizeOptions: ['40', '41', '42'],
+      ),
     ];
     await Future.forEach(productList!, (product) async {
       await product.initializeImagePaths();
