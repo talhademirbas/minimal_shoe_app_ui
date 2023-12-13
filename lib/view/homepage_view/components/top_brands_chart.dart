@@ -23,7 +23,7 @@ class TopBrandsChart extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.w500, fontSize: 22),
           ),
         ),
-        chartList == null ? const CircularProgressIndicator() : _getListView(),
+        chartList == null ? const SizedBox.shrink() : _getListView(),
       ],
     );
   }

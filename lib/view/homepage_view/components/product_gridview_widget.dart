@@ -14,7 +14,7 @@ class ProductGridview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return productList == null
-        ? const SliverToBoxAdapter(child: CircularProgressIndicator())
+        ? const SliverToBoxAdapter(child: SizedBox.shrink())
         : SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
